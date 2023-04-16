@@ -1,20 +1,15 @@
-import PropTypes from 'prop-types'; // типи пропсів
-import css from './Profile.module.css'; // стилізація компонента
+import PropTypes from 'prop-types';
+import css from './Profile.module.css';
 
-// компонент профілю користувача з переданих властивостей
 export const Profile = ({ userName, tag, location, avatar, stats }) => {
   return (
-    // блок з інформацією про користувача та статистикою
     <div className={css.profile}>
-      {/* інформація про користувача */}
       <div className={css.description}>
         <img src={avatar} alt={userName} className={css.avatar} />
         <p className={css.name}>{userName}</p>
         <p className={css.tag}>@{tag}</p>
         <p className={css.location}>{location}</p>
       </div>
-
-      {/* статистика користувача */}
 
       <ul className={css.stats}>
         <li className={css.item}>
@@ -34,7 +29,6 @@ export const Profile = ({ userName, tag, location, avatar, stats }) => {
   );
 };
 
-// Типізація для компонента
 Profile.propTypes = {
   userName: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
@@ -46,5 +40,3 @@ Profile.propTypes = {
     views: PropTypes.number.isRequired,
   }).isRequired,
 };
-
-// Діма Берестень

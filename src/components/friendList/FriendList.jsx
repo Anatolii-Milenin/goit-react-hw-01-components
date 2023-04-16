@@ -1,15 +1,12 @@
-import { FriendListItem } from './FriendListItem'; // елемент списку
-import PropTypes from 'prop-types'; // типи пропсів
-import css from './FriendList.module.css'; // стилізація компонента
+import { FriendListItem } from './FriendListItem';
+import PropTypes from 'prop-types';
+import css from './FriendList.module.css';
 
-// компонент який приймає список друзів в якості пропсів
 export const FriendList = ({ friends }) => {
   return (
     <ul className={css.friendList}>
-      {/* Перебір друзів */}
       {friends.map(friend => {
         return (
-          // повернення 1 карточки друга
           <FriendListItem
             key={friend.id}
             avatar={friend.avatar}
@@ -23,12 +20,7 @@ export const FriendList = ({ friends }) => {
 };
 
 FriendList.propTypes = {
-  // Перевірка, чи переданий параметр є масивом,
-  // і приймає PropTypes.shape в якості параметра.
   friends: PropTypes.arrayOf(
-    // shape - визначає форму об'єкта, який передається у властивість
-    // і вимагає, щоб властивості цього об'єкта відповідали певній формі (типу даних)
-
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
@@ -37,5 +29,3 @@ FriendList.propTypes = {
     }).isRequired
   ).isRequired,
 };
-
-// Діма Берестень

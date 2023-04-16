@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types'; // типи пропсів
-import css from './TransactionHistory.module.css'; // стилізація компонента
+import PropTypes from 'prop-types';
+import css from './TransactionHistory.module.css';
 
-// Компонент транзакцій
 export const TransactionHistory = ({ transactions }) => {
   return (
     <table className={css.transactionHistory}>
@@ -13,16 +12,13 @@ export const TransactionHistory = ({ transactions }) => {
         </tr>
       </thead>
       <tbody>
-        {/* проходимо по кожному елементу масиву */}
         {transactions.map(({ id, type, amount, currency }) => {
           return (
-            // створюємо рядок таблиці з даними про кожну транзакцію
             <tr className={css.tr} key={id}>
-              {/* Ключом кожного створеного рядка є id */}
               <td
                 className={css.td}
                 style={{
-                  textTransform: 'capitalize', // відображення першої літери - великою літерою
+                  textTransform: 'capitalize',
                   color: '#818181',
                 }}
               >
@@ -52,13 +48,8 @@ export const TransactionHistory = ({ transactions }) => {
   );
 };
 
-// Типізація для компонента
 TransactionHistory.propTypes = {
-  // Перевірка, чи переданий параметр є масивом,
-  // і приймає PropTypes.shape в якості параметра.
   transactions: PropTypes.arrayOf(
-    // shape - визначає форму об'єкта, який передається у властивість
-    // і вимагає, щоб властивості цього об'єкта відповідали певній формі (типу даних)
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
@@ -67,5 +58,3 @@ TransactionHistory.propTypes = {
     })
   ).isRequired,
 };
-
-// Діма Берестень
